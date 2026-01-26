@@ -3,36 +3,653 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Under Construction</title>
+  <title>Alex Rivera · Portfolio</title>
+  <meta name="description" content="Alex Rivera's personal portfolio featuring experience, projects, and contact information." />
   <style>
     :root {
-      --bg: #f6f4ef;     /* slightly off-white */
-      --text: #b8b8b8;   /* light gray */
+      color-scheme: light dark;
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --text: #1c1b1f;
+      --muted: #5c5963;
+      --primary: #2f6bff;
+      --accent: #ffe084;
+      --border: #e1e0e6;
+      --shadow: 0 16px 32px rgba(18, 18, 18, 0.08);
+      --radius-sm: 12px;
+      --radius-lg: 20px;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 2.5rem;
+      --space-8: 3rem;
+      --space-9: 4rem;
+      --space-10: 5rem;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     }
 
-    html, body {
-      height: 100%;
-      margin: 0;
+    [data-theme="dark"] {
+      --bg: #0f1115;
+      --surface: #171a21;
+      --text: #f6f4ff;
+      --muted: #a7a8b3;
+      --primary: #7aa0ff;
+      --accent: #3b2c0b;
+      --border: #2b2f3a;
+      --shadow: 0 18px 40px rgba(3, 6, 17, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      display: grid;
-      place-items: center;
+      line-height: 1.6;
     }
 
-    .msg {
-      font-size: clamp(2rem, 5vw, 4rem);
-      letter-spacing: 0.04em;
-      font-weight: 300;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, 100% - 2.5rem);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4) 0;
+      gap: var(--space-4);
+    }
+
+    .nav__brand {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .nav__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-size: 0.95rem;
+    }
+
+    .nav__links a {
+      padding: 0.35rem 0.5rem;
+      border-radius: 999px;
+      transition: background 0.2s ease;
+    }
+
+    .nav__links a:focus-visible,
+    .nav__links a:hover {
+      background: var(--accent);
+    }
+
+    .hero {
+      padding: var(--space-10) 0 var(--space-8);
+      display: grid;
+      gap: var(--space-8);
+      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .hero__card {
+      background: var(--surface);
+      padding: var(--space-7);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .hero__title {
+      font-size: clamp(2.25rem, 3vw, 3.25rem);
+      margin: 0 0 var(--space-4);
+      line-height: 1.1;
+    }
+
+    .hero__subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: var(--space-9) 0;
+    }
+
+    .section__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+
+    .section__title {
+      margin: 0;
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+    }
+
+    .section__subtitle {
+      color: var(--muted);
+      margin: var(--space-2) 0 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-5);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: var(--space-5);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--primary) 12%, transparent);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button--primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .button:focus-visible,
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .filters button[aria-pressed="true"] {
+      background: var(--primary);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .timeline {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .timeline__item {
+      border-left: 2px solid var(--border);
+      padding-left: var(--space-4);
+      position: relative;
+    }
+
+    .timeline__item::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 0.4rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .skills {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .skills__row {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .footer {
+      padding: var(--space-8) 0 var(--space-6);
+      border-top: 1px solid var(--border);
       text-align: center;
-      user-select: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section__header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: var(--space-8);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="msg">Under Construction</div>
+  <a class="sr-only" href="#content">Skip to content</a>
+  <header>
+    <div class="container nav" aria-label="Primary">
+      <div class="nav__brand">Alex Rivera</div>
+      <nav class="nav__links">
+        <a href="#summary">Summary</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="button" id="theme-toggle" type="button" aria-pressed="false">
+        <span aria-hidden="true">🌗</span>
+        <span class="sr-only">Toggle theme</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero container" id="summary">
+      <div>
+        <span class="pill">Available for new projects</span>
+        <h1 class="hero__title">Product-minded developer crafting accessible, high-performing experiences.</h1>
+        <p class="hero__subtitle">
+          I design and build websites and web applications that tell clear stories, ship fast, and scale with teams.
+          This portfolio is structured from reusable content models so new roles, projects, and skills can be added in minutes.
+        </p>
+        <div class="tag-list" aria-label="Core skills">
+          <span class="tag">HTML &amp; CSS</span>
+          <span class="tag">Design Systems</span>
+          <span class="tag">Performance</span>
+          <span class="tag">Accessibility</span>
+        </div>
+      </div>
+      <div class="hero__card" aria-label="Quick facts">
+        <h2>At a glance</h2>
+        <p class="meta">7+ years building digital products, leading cross-functional teams, and shipping design systems.</p>
+        <div class="skills" id="highlights"></div>
+        <div class="filters" aria-label="Primary actions">
+          <a class="button button--primary" href="#projects">View projects</a>
+          <a class="button" href="#contact">Contact me</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="section__title">Career experience</h2>
+            <p class="section__subtitle">Strategic roles focused on product, design systems, and engineering leadership.</p>
+          </div>
+          <div class="filters" aria-label="Experience focus areas">
+            <span class="pill">Product strategy</span>
+            <span class="pill">Engineering leadership</span>
+            <span class="pill">Design operations</span>
+          </div>
+        </div>
+        <div class="timeline" id="experience-timeline"></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="section__title">Selected projects</h2>
+            <p class="section__subtitle">Filter the work by focus area to explore patterns and outcomes.</p>
+          </div>
+          <div class="filters" id="project-filters" role="group" aria-label="Project filters"></div>
+        </div>
+        <div class="grid" id="project-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" id="hobbies">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="section__title">Hobbies &amp; community</h2>
+            <p class="section__subtitle">The creative practices that keep my work fresh and curious.</p>
+          </div>
+        </div>
+        <div class="grid" id="hobby-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="section__title">Contact</h2>
+            <p class="section__subtitle">Let’s discuss collaborations, speaking, or a new role.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Let’s build together</h3>
+            <p>Reach out with a project brief and I’ll respond within two business days.</p>
+            <div class="filters">
+              <a class="button button--primary" href="mailto:alex@rivera.studio">Email alex@rivera.studio</a>
+              <a class="button" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Download</h3>
+            <p class="meta">Grab a one-page overview of my experience and service offerings.</p>
+            <button class="button" type="button" id="download-resume">Download resume PDF</button>
+          </div>
+          <div class="card">
+            <h3>Office hours</h3>
+            <p class="meta">Based in Austin, TX · Available 9am–8pm CST</p>
+            <div class="tag-list">
+              <span class="tag">Remote friendly</span>
+              <span class="tag">Mentorship</span>
+              <span class="tag">Workshops</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Designed and built with accessibility, performance, and clarity in mind.</p>
+    </div>
+  </footer>
+
+  <script>
+    const highlights = [
+      { label: "Primary focus", value: "Design systems & UX engineering" },
+      { label: "Favorite stack", value: "HTML, CSS, JS + React" },
+      { label: "Recent impact", value: "45% faster onboarding time" },
+    ];
+
+    const experiences = [
+      {
+        role: "Lead Product Engineer",
+        company: "Aurora Health",
+        period: "2021 – Present",
+        summary: "Built an accessible telehealth platform and scaled a new design system across 6 product teams.",
+        highlights: ["Launched 3 product lines", "Improved Lighthouse scores to 95+", "Mentored 12 engineers"],
+      },
+      {
+        role: "Senior Front-End Developer",
+        company: "Nova Fintech",
+        period: "2018 – 2021",
+        summary: "Led performance initiatives and delivered a multi-region lending experience for 120K users.",
+        highlights: ["Cut page load by 38%", "Built component library", "Improved conversion by 22%"],
+      },
+      {
+        role: "UI Engineer",
+        company: "Studio Kinetic",
+        period: "2015 – 2018",
+        summary: "Partnered with designers to craft storytelling microsites for global nonprofits.",
+        highlights: ["Awarded 3 CSSDA honors", "Led accessibility audits", "Automated asset pipelines"],
+      },
+    ];
+
+    const projects = [
+      {
+        name: "Pulse Insights Dashboard",
+        description: "Real-time analytics suite with progressive disclosure and a shared component library.",
+        tags: ["Analytics", "Design system", "B2B"],
+        outcome: "Reduced reporting time by 60%",
+      },
+      {
+        name: "City Mobility Portal",
+        description: "Accessible transit planner with multilingual support and offline-first patterns.",
+        tags: ["Accessibility", "Civic tech", "Performance"],
+        outcome: "Adopted by 18K weekly riders",
+      },
+      {
+        name: "BrightPath Career Hub",
+        description: "Career coaching platform with personalized content journeys and smart scheduling.",
+        tags: ["Product strategy", "UX", "Web app"],
+        outcome: "Improved retention by 24%",
+      },
+      {
+        name: "Northwind Design Ops",
+        description: "Internal toolkit automating handoffs and documentation for distributed teams.",
+        tags: ["Design system", "Automation", "Leadership"],
+        outcome: "Saved 12 hours per sprint",
+      },
+    ];
+
+    const hobbies = [
+      {
+        title: "Community design jams",
+        description: "Host monthly workshops helping nonprofits prototype new experiences.",
+      },
+      {
+        title: "Outdoor trail photography",
+        description: "Document regional hikes and share accessible trail guides.",
+      },
+      {
+        title: "Experimental typography",
+        description: "Explore variable type and responsive lettering in side projects.",
+      },
+    ];
+
+    const highlightContainer = document.getElementById("highlights");
+    highlights.forEach((item) => {
+      const row = document.createElement("div");
+      row.className = "skills__row";
+      row.innerHTML = `<span class="meta">${item.label}</span><strong>${item.value}</strong>`;
+      highlightContainer.appendChild(row);
+    });
+
+    const experienceContainer = document.getElementById("experience-timeline");
+    experiences.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "card timeline__item";
+      card.innerHTML = `
+        <div>
+          <h3>${item.role}</h3>
+          <p class="meta">${item.company} · ${item.period}</p>
+        </div>
+        <p>${item.summary}</p>
+        <ul>
+          ${item.highlights.map((highlight) => `<li>${highlight}</li>`).join("")}
+        </ul>
+      `;
+      experienceContainer.appendChild(card);
+    });
+
+    const projectGrid = document.getElementById("project-grid");
+    const filterContainer = document.getElementById("project-filters");
+    const projectTags = ["All", ...new Set(projects.flatMap((project) => project.tags))];
+    let activeTag = "All";
+
+    const renderProjects = () => {
+      projectGrid.innerHTML = "";
+      const filtered = activeTag === "All" ? projects : projects.filter((project) => project.tags.includes(activeTag));
+
+      filtered.forEach((project) => {
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <div>
+            <h3>${project.name}</h3>
+            <p class="meta">${project.description}</p>
+          </div>
+          <div class="tag-list">
+            ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+          </div>
+          <p><strong>Outcome:</strong> ${project.outcome}</p>
+        `;
+        projectGrid.appendChild(card);
+      });
+    };
+
+    const renderFilters = () => {
+      filterContainer.innerHTML = "";
+      projectTags.forEach((tag) => {
+        const button = document.createElement("button");
+        button.className = "button";
+        button.type = "button";
+        button.setAttribute("aria-pressed", String(tag === activeTag));
+        button.textContent = tag;
+        button.addEventListener("click", () => {
+          activeTag = tag;
+          renderFilters();
+          renderProjects();
+        });
+        filterContainer.appendChild(button);
+      });
+    };
+
+    const hobbyGrid = document.getElementById("hobby-grid");
+    hobbies.forEach((hobby) => {
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `<h3>${hobby.title}</h3><p class="meta">${hobby.description}</p>`;
+      hobbyGrid.appendChild(card);
+    });
+
+    const themeToggle = document.getElementById("theme-toggle");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+    const storedTheme = localStorage.getItem("theme");
+
+    const applyTheme = (theme) => {
+      document.documentElement.dataset.theme = theme;
+      themeToggle.setAttribute("aria-pressed", theme === "dark");
+    };
+
+    const initialTheme = storedTheme || (prefersDark.matches ? "dark" : "light");
+    applyTheme(initialTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", nextTheme);
+      applyTheme(nextTheme);
+    });
+
+    window.addEventListener("load", () => {
+      document.querySelectorAll(".card").forEach((card, index) => {
+        card.animate(
+          [
+            { opacity: 0, transform: "translateY(12px)" },
+            { opacity: 1, transform: "translateY(0)" },
+          ],
+          {
+            duration: 360,
+            delay: index * 40,
+            easing: "ease-out",
+            fill: "both",
+          }
+        );
+      });
+    });
+
+    renderFilters();
+    renderProjects();
+
+    document.getElementById("download-resume").addEventListener("click", () => {
+      alert("Resume downloads will be available soon. In the meantime, email me for a copy.");
+    });
+  </script>
 </body>
 </html>
