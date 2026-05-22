@@ -17,7 +17,6 @@ export default function Projects() {
 
 /*
 
-
 <Link href="/projects/thesis" className="max-w-auto p-2" >
     <div className="bg-white shadow-sm border border-slate-200 rounded-lg p-2">
         <h5 className="mb-2 text-slate-800 text-xl font-semibold">

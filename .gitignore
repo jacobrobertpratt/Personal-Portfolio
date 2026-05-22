@@ -1,9 +1,12 @@
-node_modules
-
-<<<<<<< HEAD
-.next
-=======
-.next
+# Apple
+/.DS_Store
 .DS_Store
 
->>>>>>> 01afa17 (updated .gitignore)
+# Dependencies
+node_modules
+/node_modules
+/.pnp
+.pnp.js
+
+
+
