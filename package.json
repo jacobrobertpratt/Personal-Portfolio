@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "npm run build",
     "start": "npm run start",
-    "reset": "",
     "lint": "eslint"
   },
   "dependencies": {
