@@ -1,6 +1,6 @@
 //import Form from 'next/form'
 // import Link from 'next/link'
-import NavBar from '@/ui/layout/nav';
+import NavBar from '@/ui/layout/snav';
 
 import Card from '@/ui/card'
 
@@ -8,10 +8,10 @@ export default function Projects() {
     return (
         <div className="items-center justify-center max-w-auto p-2">
             <NavBar />
-            <Card href="/projs/thesis" title='Masters Thesis'>
+            <Card href="/projects/thesis" title='Masters Thesis'>
                 A feasibility study on the hopf-bifurcation as a complex-valued activation function.
             </Card>
-            <Card href="/projs/robotclub" title='Robotics Club'>
+            <Card href="/projects/robotclub" title='Robotics Club'>
                 Autonomous Snowplow ... bla bla bla competed at the St. Paul winter carnival ...
             </Card>
         </div>

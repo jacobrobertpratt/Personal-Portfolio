@@ -1,7 +1,8 @@
+
 //import Form from 'next/form'
 // import Card from '@/ui/card'
 import { TextP } from '@/ui/text';
-import NavBar from "@/ui/layout/nav";
+import NavBar from "@/ui/layout/snav";
 import { Sec } from '@/ui/layout/tags';
 
 export default function Home() {

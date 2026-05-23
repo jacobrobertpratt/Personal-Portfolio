@@ -4,14 +4,18 @@ import path from 'path';
 
 // Collects and returns a list of sub-directories, given an input directory.
 export async function getSubDirs({
-    href="/"
+    href=""
 }) {
 
     const root_dir = path.join( process.cwd(), href);
-    
+    console.log('Utils.root_dir:',root_dir);
+
     const dir_items = await fs.readdir( root_dir, { withFileTypes: true } );
-    
+    console.log('Utils.dir_items:',dir_items);
+
     const subdirs = dir_items.filter((item) => item.isDirectory()).map((item) => item.name);
+
+    console.log('subdirs:',subdirs);
 
     return subdirs; // returns: <string[]>
 }
