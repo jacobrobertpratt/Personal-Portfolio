@@ -1,5 +1,6 @@
+
 // Section container for this application.
-export function Sec({
+export function Section({
     children
 }: Readonly<{
     children: React.ReactNode;
