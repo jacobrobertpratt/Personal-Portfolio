@@ -34,7 +34,7 @@ function NavLink({
 }) {
     const pathname = usePathname();
     const isActive = pathname == href;
-    let text_size_change = isActive ? "text-2xl text-slate-800" : "text-xl text-slate-500";
+    let text_size_change = isActive ? "text-2xl text-slate-800" : "text-md text-slate-500";
     
     return (
             <Link href={href} className={ text_size_change + " hover:translate-y-1 font-bold p-2"}>{children}</Link>
@@ -44,7 +44,7 @@ function NavLink({
 export default function NavBar() {
 
     return (
-        <div className="flex justify-center p-2">
+        <div className="flex justify-center sticky top-0 z-50 bg-inherit barder p-2">
             <NavLink href="/">HOME</NavLink>
             <NavLink href="/projects">PROJECTS</NavLink>
         </div>
