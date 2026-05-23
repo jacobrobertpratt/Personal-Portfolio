@@ -9,7 +9,7 @@ export function TextTitle({
     );
 }
 
-export function TextParagraph({
+export function TextP({
     children="",
     className=""
 }) {

@@ -1,7 +1,7 @@
 // components/Header.tsx
 
 import Link from "next/link";
-import { TextParagraph, TextTitle } from "./text";
+import { TextP, TextTitle } from "./text";
 
 function CardTitle({
     children=""
@@ -15,7 +15,7 @@ function CardParagraph({
     children=""
 }) {
     return (
-        <TextParagraph>{children}</TextParagraph>
+        <TextP>{children}</TextP>
     );
 }
 

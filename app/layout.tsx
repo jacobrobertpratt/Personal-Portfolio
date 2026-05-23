@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import NavBar from "@/ui/layout/nav";
+// import NavBar from "@/ui/layout/nav";
 
 export const metadata: Metadata = {
   title: "Portfolio", // Tab Title //
@@ -17,10 +17,7 @@ export default function RootLayout({
       return (
         <html lang="en">
             <body>
-              <NavBar />
-              <main className="flex flex-col items-center">
-                {children}
-              </main>
+              {children}
             </body>
         </html>
   );

@@ -1,13 +1,13 @@
 
-export default function RoboticsClubLayout({
+export default function ProjectLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
       return (
-          <main className="flex flex-col">
+          <section className="flex flex-col">
               {children}
-          </main>
+          </section>
   );
 }
 

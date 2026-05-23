@@ -15,23 +15,12 @@ import { usePathname } from 'next/navigation';
 //     { name: 'Services', href: '/services' },
 // ];
 
-export function AppLink ({
-    children="",
-    href="/",
-    className=""
-}) {
-    // Sets standard 
-    let _className="hover:text-slate-500 text-slate-800 "+className;
-    // console.log('_className: '+_className)
-    return (
-        <Link href={href} className={_className}>{children}</Link>
-    );
-}
-
+// Nav Link lives in the navigation bar at the top of the pages.
 function NavLink({
     children="",
     href=""
 }) {
+    
     const pathname = usePathname();
     const isActive = pathname == href;
     let text_size_change = isActive ? "text-2xl text-slate-800" : "text-md text-slate-500";
@@ -41,13 +30,17 @@ function NavLink({
     );
 }
 
-export default function NavBar() {
-
+// Navigation Bar is always ontop of the page.
+export default function NavBar({
+    href=""
+}) {
+    // Get list of sub-directories
+    
     return (
-        <div className="flex justify-center sticky top-0 z-50 bg-inherit barder p-2">
+        <nav className="flex justify-center sticky top-0 z-50 bg-inherit barder  p-2">
             <NavLink href="/">HOME</NavLink>
-            <NavLink href="/projects">PROJECTS</NavLink>
-        </div>
+            <NavLink href="/projs">PROJECTS</NavLink>
+        </nav>
     );
 }
 

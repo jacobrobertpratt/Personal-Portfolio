@@ -5,9 +5,9 @@ export default function ThesisLayout({
     children: React.ReactNode;
 }>) {
       return (
-          <main className="flex flex-col">
+          <section className="flex flex-col">
               {children}
-          </main>
+          </section>
   );
 }
 
