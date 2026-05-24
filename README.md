@@ -1,3 +1,28 @@
+
+Example File Structure
+/src
+├── /app                # Routing, layouts, and pages (App Router)
+│   ├── (auth)          # Route groups (don't affect URL)
+│   │   ├── login/page.tsx
+│   │   └── layout.tsx
+│   ├── (dashboard)     # Logical groupings for layouts
+│   │   ├── _components/ # Private folder (ignored by router)
+│   │   └── page.tsx
+│   ├── api/            # API routes
+│   ├── globals.css     # Global styles imported in root layout
+│   └── layout.tsx      # Root layout
+├── /components         # Shared, reusable UI components
+│   ├── /ui             # Primitives (e.g., buttons from Shadcn UI)
+│   └── /common         # Shared layouts (header, footer)
+├── /hooks              # Global custom React hooks
+├── /lib                # Shared utility functions and SDK clients
+├── /services           # API fetching and business logic
+├── /types              # Shared TypeScript definitions
+/public                 # Static assets (images, fonts, etc.)
+.env.local              # Local environment variables
+next.config.js          # Next.js configuration
+
+
 Example Layout Reference:
 
 project/
