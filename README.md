@@ -1,5 +1,3 @@
-
-
 Example Layout Reference:
 
 project/
