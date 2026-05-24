@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-// import NavBar from "@/ui/layout/nav";
 
 export const metadata: Metadata = {
   title: "Portfolio", // Tab Title //

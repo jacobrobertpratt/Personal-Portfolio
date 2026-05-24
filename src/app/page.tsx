@@ -1,15 +1,15 @@
 
 //import Form from 'next/form'
 // import Card from '@/ui/card'
-import { TextP } from '@/ui/text';
-import NavBar from "@/ui/layout/snav";
-import { Section } from '@/ui/layout/tags';
+// import { TextP } from '@/ui/text';
+// import NavBar from "@/ui/layout/snav";
+// import { Section } from '@/ui/layout/tags';
 
 export default function Home() {
     return (
         <main>
             {/* This is just a note see if it shows up. It does not. */}
-            <NavBar />
+            {/* <NavBar />
             <Section>
                 <TextP>
                     Add Introduction Here ... 
@@ -20,7 +20,8 @@ export default function Home() {
             World War II (1939–1945) was a global conflict involving most of the world’s nations, primarily divided between the Allied Powers and the Axis Powers. The war began when Nazi Germany, led by Adolf Hitler, invaded Poland, prompting Britain and France to declare war. Axis expansion included German advances across Europe, Italy’s campaigns in Africa, and Japan’s military actions in East Asia and the Pacific. The conflict was characterized by widespread destruction, strategic bombing, and the systematic genocide of six million Jews and millions of other victims in the Holocaust. Key turning points included Germany’s defeat at Stalingrad, the Allied invasion of Normandy on D-Day, and major naval battles in the Pacific such as Midway. The United States entered the war after Japan’s attack on Pearl Harbor in 1941, significantly strengthening the Allied war effort. The war in Europe ended in May 1945 after Germany’s surrender, while the Pacific conflict concluded in August 1945 after the United States dropped atomic bombs on Hiroshima and Nagasaki, leading to Japan’s surrender. World War II resulted in an estimated 70–85 million deaths and reshaped global power structures, contributing to the emergence of the United States and the Soviet Union as superpowers and initiating the Cold War.
 
                 </TextP>
-            </Section>
+            </Section> */}
+            <p>This is my app ...</p>
         </main>
     );
 }
