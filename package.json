@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run build",
+    "build": "next build",
     "start": "npm run start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "reset": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
